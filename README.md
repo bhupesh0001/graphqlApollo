@@ -5,6 +5,7 @@ React Native Example with graphQL api using Apollo 2.0
 
 - [Installation](#installation)
 - [Running this Project](#running-this-project)
+- [Screenshots](#screenshots)
 - [License](#license)
 
 ## Installation
@@ -29,6 +30,11 @@ $ react-native link
 To run on iOS: `react-native run-ios`
 
 To run on Android: `react-native run-android`
+
+## Screenshots
+
+![Screenshot](https://github.com/bhupesh0001/graphqlApollo/blob/master/screenshots/Simulator-ScreenShot-iPhoneX-list.png)
+![Screenshot](https://github.com/bhupesh0001/graphqlApollo/blob/master/screenshots/Simulator-ScreenShot-iPhone-details.png)
 
 ## License
 
