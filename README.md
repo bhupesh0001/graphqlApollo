@@ -33,8 +33,7 @@ To run on Android: `react-native run-android`
 
 ## Screenshots
 
-![Screenshot](https://github.com/bhupesh0001/graphqlApollo/blob/master/screenshots/Simulator-ScreenShot-iPhoneX-list.png)
-![Screenshot](https://github.com/bhupesh0001/graphqlApollo/blob/master/screenshots/Simulator-ScreenShot-iPhone-details.png)
+![Screenshot](https://github.com/bhupesh0001/graphqlApollo/blob/master/screenshots/screenshot.gif)
 
 ## License
 
