@@ -8,7 +8,8 @@
     "no-undef": ["error"],
     "react/sort-comp": ["off"],
     "react/prefer-stateless-function": ["off"],
-    "max-len":["off"]
+    "max-len":["off"],
+    "no-underscore-dangle":["off"]
   },
   "globals": {
     "it": 0,
