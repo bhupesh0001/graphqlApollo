@@ -55,7 +55,7 @@ export default class HackerNewsDetails extends Component {
                   <Text style={styles.moreInformation}>{MORE_INFORMATION}</Text>
                   <Text style={styles.hyperlink} onPress={() => Linking.openURL(item.url)}>{item.url}</Text>
                   <Text style={styles.commentsText}>{COMMENTS}</Text>
-                  <Comments items={item.kids} />
+                  <Comments comments={item.kids} />
 
                 </View>
 
