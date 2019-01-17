@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   View,
   Text,
   ActivityIndicator,
   Linking,
-  ScrollView,
-} from 'react-native';
-import { Query } from 'react-apollo';
+  ScrollView
+} from "react-native";
+import { Query } from "react-apollo";
 import {
   Container,
   Header,
@@ -14,9 +14,9 @@ import {
   Left,
   Icon,
   Button,
-  Right,
-} from 'native-base';
-import { FetchHackerNewsItem } from '../../../queries/hackerNews';
+  Right
+} from "native-base";
+import { FetchHackerNewsItem } from "../../../queries/hackerNews";
 import {
   TOP_STORIES,
   POSTED_BY,
@@ -24,10 +24,10 @@ import {
   UPDATED,
   MORE_INFORMATION,
   COMMENTS,
-  POINTS,
-} from '../../../constants/staticText';
-import Comments from '../../../components/Comments';
-import styles from './style';
+  POINTS
+} from "../../../constants/staticText";
+import Comments from "../../../components/Comments";
+import styles from "./style";
 
 export default class HackerNewsDetails extends Component {
   // render function to render on screen
@@ -52,11 +52,11 @@ export default class HackerNewsDetails extends Component {
         </Header>
         <ScrollView>
           <Text style={styles.title}>
-            {navigation.getParam('itemTitle', 'Details')}
+            {navigation.getParam("itemTitle", "Details")}
           </Text>
           <Query
             query={FetchHackerNewsItem}
-            variables={{ itemId: navigation.getParam('itemId', '34') }}
+            variables={{ itemId: navigation.getParam("itemId", "34") }}
           >
             {({ loading, error, data }) => {
               if (loading) {

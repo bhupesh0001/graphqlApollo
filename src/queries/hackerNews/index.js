@@ -1,1 +1,1 @@
-export * from './fetchHackerNews';
+export * from "./fetchHackerNews";

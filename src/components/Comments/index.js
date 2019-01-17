@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
-import { View } from 'react-native';
-import PropTypes from 'prop-types';
-import CommentItem from './Item';
-import styles from './style';
+import React, { PureComponent } from "react";
+import { View } from "react-native";
+import PropTypes from "prop-types";
+import CommentItem from "./Item";
+import styles from "./style";
 
 export default class Comments extends PureComponent {
   render() {
@@ -17,5 +17,5 @@ export default class Comments extends PureComponent {
   }
 }
 Comments.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired
 };
