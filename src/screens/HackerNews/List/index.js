@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from "react";
 import { FlatList, Text, ActivityIndicator } from "react-native";
 import { Query } from "react-apollo";
@@ -11,12 +12,16 @@ import {
   Right,
   Icon
 } from "native-base";
+import { NavigationScreenProp, NavigationStateRoute } from "react-navigation";
 import { FetchHackerNewsTopStories } from "../../../queries/hackerNews";
 import { PAGE_SIZE } from "../../../constants/config";
 import { TOP_STORIES, ERROR } from "../../../constants/staticText";
 import styles from "./style";
 
-export default class HackerNewsList extends Component {
+type Props = {
+  navigation: NavigationScreenProp<NavigationStateRoute>
+};
+export default class HackerNewsList extends Component<Props> {
   // render Item of Flatlist
   _renderItem = ({ item }) => (
     <ListItem

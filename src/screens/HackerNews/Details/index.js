@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from "react";
 import {
   View,
@@ -16,6 +17,7 @@ import {
   Button,
   Right
 } from "native-base";
+import { NavigationScreenProp, NavigationStateRoute } from "react-navigation";
 import { FetchHackerNewsItem } from "../../../queries/hackerNews";
 import {
   TOP_STORIES,
@@ -29,7 +31,11 @@ import {
 import Comments from "../../../components/Comments";
 import styles from "./style";
 
-export default class HackerNewsDetails extends Component {
+type Props = {
+  navigation: NavigationScreenProp<NavigationStateRoute>
+};
+
+export default class HackerNewsDetails extends Component<Props> {
   // render function to render on screen
   render() {
     const { navigation } = this.props;

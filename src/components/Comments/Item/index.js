@@ -1,10 +1,20 @@
+// @flow
 import React, { PureComponent } from "react";
 import { View, Text } from "react-native";
 import HTMLView from "react-native-htmlview";
 import { Icon } from "native-base";
 import styles from "./style";
 
-export default class CommentItem extends PureComponent {
+type Props = {
+  item: {
+    text: string,
+    timeISO: string,
+    by: {
+      id: string
+    }
+  }
+};
+export default class CommentItem extends PureComponent<Props> {
   render() {
     const { item } = this.props;
     return (
