@@ -22,7 +22,7 @@ type Props = {
   navigation: NavigationScreenProp<NavigationStateRoute>
 };
 /**
- *
+ *@description(Render List of HackerNews)
  *
  * @export
  * @class HackerNewsList

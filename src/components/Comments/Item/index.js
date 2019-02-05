@@ -15,7 +15,7 @@ type Props = {
   }
 };
 /**
- *
+ *@description(Render a comment)
  *
  * @export
  * @class CommentItem

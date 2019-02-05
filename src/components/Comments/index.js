@@ -16,7 +16,7 @@ type Props = {
   items: Array<item>
 };
 /**
- *
+ *@description(Render List of Comments)
  *
  * @export
  * @class Comments

@@ -3,7 +3,10 @@ import { Platform } from "react-native";
 
 import HackerNewsDetails from "../screens/HackerNews/Details";
 import HackerNewsList from "../screens/HackerNews/List";
-
+/**
+ * @function
+ * @navigation
+ */
 const AppNavigator = createAppContainer(
   createStackNavigator(
     {

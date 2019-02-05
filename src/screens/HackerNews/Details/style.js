@@ -1,5 +1,8 @@
 import { StyleSheet } from "react-native";
-
+/**
+ * @style
+ * @constant
+ */
 const styles = StyleSheet.create({
   category: {
     textAlign: "right",

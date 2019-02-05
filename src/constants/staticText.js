@@ -1,3 +1,7 @@
+/**
+ * @global
+ * @text
+ */
 export const TOP_STORIES = "Top Stories";
 export const UPDATED = "Updated : ";
 export const MORE_INFORMATION = "For More Information";
