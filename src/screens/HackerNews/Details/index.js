@@ -34,7 +34,13 @@ import styles from "./style";
 type Props = {
   navigation: NavigationScreenProp<NavigationStateRoute>
 };
-
+/**
+ *
+ *
+ * @export
+ * @class HackerNewsDetails
+ * @extends {Component<Props>}
+ */
 export default class HackerNewsDetails extends Component<Props> {
   // render function to render on screen
   render() {

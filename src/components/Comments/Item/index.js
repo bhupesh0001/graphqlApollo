@@ -14,6 +14,13 @@ type Props = {
     }
   }
 };
+/**
+ *
+ *
+ * @export
+ * @class CommentItem
+ * @extends {PureComponent<Props>}
+ */
 export default class CommentItem extends PureComponent<Props> {
   render() {
     const { item } = this.props;

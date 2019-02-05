@@ -7,7 +7,13 @@ import AppNavigator from "./src/navigation/appNavigator";
 const client = new ApolloClient({
   uri: GRAPHQLHUB_URL
 });
-
+/**
+ *
+ *
+ * @export
+ * @class App
+ * @extends {Component}
+ */
 export default class App extends Component {
   render() {
     return (

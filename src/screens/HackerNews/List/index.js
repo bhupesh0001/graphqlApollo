@@ -21,6 +21,13 @@ import styles from "./style";
 type Props = {
   navigation: NavigationScreenProp<NavigationStateRoute>
 };
+/**
+ *
+ *
+ * @export
+ * @class HackerNewsList
+ * @extends {Component<Props>}
+ */
 export default class HackerNewsList extends Component<Props> {
   // render Item of Flatlist
   _renderItem = ({ item }) => (

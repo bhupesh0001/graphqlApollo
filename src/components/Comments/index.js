@@ -15,6 +15,13 @@ type item = {
 type Props = {
   items: Array<item>
 };
+/**
+ *
+ *
+ * @export
+ * @class Comments
+ * @extends {PureComponent<Props>}
+ */
 export default class Comments extends PureComponent<Props> {
   render() {
     const { items } = this.props;
