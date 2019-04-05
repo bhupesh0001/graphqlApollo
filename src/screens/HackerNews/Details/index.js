@@ -22,6 +22,7 @@ import {
   POINTS,
   DEFAULT_ITEM_TITLE
 } from "../../../constants/staticText";
+import { THEME_COLORS } from "../../../constants/colors";
 import { DEFAULT_ITEM_ID } from "../../../constants/config";
 import Comments from "../../../components/Comments";
 import styles from "./style";
@@ -40,7 +41,11 @@ export default class HackerNewsDetails extends Component<Props> {
   _renderHeaderLeftComponent = (
     navigation: NavigationScreenProp<NavigationStateRoute>
   ) => (
-    <Icon name="arrow-back" color="#fff" onPress={() => navigation.goBack()} />
+    <Icon
+      name="arrow-back"
+      color={THEME_COLORS.iconBackground}
+      onPress={() => navigation.goBack()}
+    />
   );
 
   _renderHeaderCenterComponent = () => (
@@ -48,7 +53,11 @@ export default class HackerNewsDetails extends Component<Props> {
   );
 
   _renderHeaderRightComponent = (title: string) => (
-    <Icon name="share" color="#fff" onPress={() => this._onShare(title)} />
+    <Icon
+      name="share"
+      color={THEME_COLORS.iconBackground}
+      onPress={() => this._onShare(title)}
+    />
   );
 
   _onShare = async (message: string) => {
@@ -62,7 +71,7 @@ export default class HackerNewsDetails extends Component<Props> {
     const { navigation } = this.props;
     const itemDetails = navigation.getParam("itemTitle", DEFAULT_ITEM_TITLE);
     return (
-      <View>
+      <View style={styles.container}>
         <Header
           leftComponent={this._renderHeaderLeftComponent(navigation)}
           centerComponent={this._renderHeaderCenterComponent}
@@ -78,7 +87,12 @@ export default class HackerNewsDetails extends Component<Props> {
           >
             {({ loading, error, data }) => {
               if (loading) {
-                return <ActivityIndicator size="small" color="#00ff00" />;
+                return (
+                  <ActivityIndicator
+                    style={styles.activityIndicator}
+                    color={THEME_COLORS.activityIndicator}
+                  />
+                );
               }
               if (error) return <Text>{`Error: ${error}`}</Text>;
               const { item } = data.hn;

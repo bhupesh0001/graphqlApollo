@@ -7,6 +7,7 @@ import { NavigationScreenProp, NavigationStateRoute } from "react-navigation";
 import { FetchHackerNewsTopStories } from "../../../queries/hackerNews";
 import { PAGE_SIZE } from "../../../constants/config";
 import { TOP_STORIES, ERROR } from "../../../constants/staticText";
+import { THEME_COLORS } from "../../../constants/colors";
 import styles from "./style";
 
 type Props = {
@@ -55,8 +56,7 @@ export default class HackerNewsList extends Component<Props> {
               return (
                 <ActivityIndicator
                   style={styles.activityIndicator}
-                  size="small"
-                  color="#00ff00"
+                  color={THEME_COLORS.activityIndicator}
                 />
               );
             if (error) return <Text>{`${ERROR}${error}`}</Text>;

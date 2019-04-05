@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { THEME_COLORS } from "../../../constants/colors";
 /**
  * @style
  * @constant
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
   },
   titleHeader: {
     fontSize: 18,
-    color: "#fff"
+    color: THEME_COLORS.headerText
   }
 });
 export default styles;

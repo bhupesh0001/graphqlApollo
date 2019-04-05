@@ -1,9 +1,13 @@
 import { StyleSheet } from "react-native";
+import { THEME_COLORS } from "../../../constants/colors";
 /**
  * @style
  * @constant
  */
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   category: {
     textAlign: "right",
     flex: 1,
@@ -12,7 +16,8 @@ const styles = StyleSheet.create({
   activityIndicator: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    color: THEME_COLORS.activityIndicator
   },
   pointPostedContainer: {
     flex: 1,
@@ -41,7 +46,7 @@ const styles = StyleSheet.create({
   hyperlink: {
     marginHorizontal: 10,
     marginBottom: 10,
-    color: "#0066FF"
+    color: THEME_COLORS.hyperLink
   },
   title: {
     marginHorizontal: 10,
