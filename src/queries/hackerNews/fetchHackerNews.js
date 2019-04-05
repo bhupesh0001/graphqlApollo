@@ -34,7 +34,7 @@ const FetchHackerNewsItem = gql`
       item(id: $itemId) {
         url
         type
-        time
+        timeISO
         score
         url
         by {
