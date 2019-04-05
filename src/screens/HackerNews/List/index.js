@@ -5,7 +5,11 @@ import { Query } from "react-apollo";
 import { Header, ListItem } from "react-native-elements";
 import { NavigationScreenProp, NavigationStateRoute } from "react-navigation";
 import { FetchHackerNewsTopStories } from "../../../queries/hackerNews";
-import { PAGE_SIZE } from "../../../constants/config";
+import {
+  PAGE_SIZE,
+  INITIAL_NUMBER_RENDER_LIST,
+  MAX_RENDER_PER_BATCH_LIST
+} from "../../../constants/config";
 import { TOP_STORIES, ERROR } from "../../../constants/staticText";
 import { THEME_COLORS } from "../../../constants/colors";
 import styles from "./style";
@@ -14,23 +18,27 @@ type Props = {
   navigation: NavigationScreenProp<NavigationStateRoute>
 };
 /**
- *@description(Render List of HackerNews)
+ * @description(Render List of HackerNews)
  *
  * @export
  * @class HackerNewsList
  * @extends {Component<Props>}
  */
 export default class HackerNewsList extends Component<Props> {
-  // render Item of Flatlist
+  constructor(props: Props) {
+    super(props);
+    (this: any).onItemPress = this.onItemPress.bind(this);
+  }
+
+  /**
+   * @description(render List of Items)
+   *
+   * @param {*} { item }
+   * @memberof HackerNewsList
+   */
   _renderItem = ({ item }) => (
     <ListItem
-      onPress={() => {
-        /* 1. Navigate to the Details route with params */
-        this.props.navigation.navigate("HackerNewsDetails", {
-          itemId: item.id,
-          itemTitle: item.title
-        });
-      }}
+      onPress={() => this.onItemPress(item.id, item.title)}
       title={item.title}
       key={item.id}
       chevron
@@ -38,10 +46,35 @@ export default class HackerNewsList extends Component<Props> {
     />
   );
 
+  /**
+   * @description (navigate to Detail screen)
+   *
+   * @param {string} itemId
+   * @param {string} itemTitle
+   * @memberof HackerNewsList
+   */
+  onItemPress(itemId: string, itemTitle: string) {
+    const { navigation } = this.props;
+    navigation.navigate("HackerNewsDetails", {
+      itemId,
+      itemTitle
+    });
+  }
+
+  /**
+   * @description(Return center component of Header)
+   *
+   * @memberof HackerNewsList
+   */
   _renderHeaderCenterComponent = () => (
     <Text style={styles.titleHeader}>{TOP_STORIES}</Text>
   );
 
+  /**
+   * @description(Render HackerNews in List style)
+   *
+   * @memberof HackerNewsList
+   */
   render() {
     return (
       <View style={styles.container}>
@@ -66,8 +99,8 @@ export default class HackerNewsList extends Component<Props> {
                 keyExtractor={item => item.id}
                 data={data.hn.topStories}
                 renderItem={item => this._renderItem(item)}
-                initialNumToRender={12}
-                maxToRenderPerBatch={2}
+                initialNumToRender={INITIAL_NUMBER_RENDER_LIST}
+                maxToRenderPerBatch={MAX_RENDER_PER_BATCH_LIST}
                 onEndReachedThreshold={1}
                 onEndReached={() => {
                   fetchMore({

@@ -38,6 +38,12 @@ type Props = {
  * @extends {Component<Props>}
  */
 export default class HackerNewsDetails extends Component<Props> {
+  /**
+   * @description(Return Left component of Header)
+   *
+   * @param {NavigationScreenProp<NavigationStateRoute>} navigation
+   * @memberof HackerNewsDetails
+   */
   _renderHeaderLeftComponent = (
     navigation: NavigationScreenProp<NavigationStateRoute>
   ) => (
@@ -48,10 +54,21 @@ export default class HackerNewsDetails extends Component<Props> {
     />
   );
 
+  /**
+   *
+   *
+   * @memberof HackerNewsDetails
+   */
   _renderHeaderCenterComponent = () => (
     <Text style={styles.titleHeader}>{TOP_STORIES}</Text>
   );
 
+  /**
+   *
+   *
+   * @param {string} title
+   * @memberof HackerNewsDetails
+   */
   _renderHeaderRightComponent = (title: string) => (
     <Icon
       name="share"
@@ -60,13 +77,24 @@ export default class HackerNewsDetails extends Component<Props> {
     />
   );
 
+  /**
+   *
+   *
+   * @param {string} message
+   * @memberof HackerNewsDetails
+   */
   _onShare = async (message: string) => {
     await Share.share({
       message
     });
   };
 
-  // render function to render on screen
+  /**
+   *
+   * @description(render function to render on screen)
+   * @returns
+   * @memberof HackerNewsDetails
+   */
   render() {
     const { navigation } = this.props;
     const itemDetails = navigation.getParam("itemTitle", DEFAULT_ITEM_TITLE);
