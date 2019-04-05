@@ -1,17 +1,8 @@
 // @flow
 import React, { Component } from "react";
-import { FlatList, Text, ActivityIndicator } from "react-native";
+import { FlatList, Text, ActivityIndicator, View } from "react-native";
 import { Query } from "react-apollo";
-import {
-  Container,
-  Header,
-  Body,
-  Title,
-  ListItem,
-  Left,
-  Right,
-  Icon
-} from "native-base";
+import { Header, ListItem } from "react-native-elements";
 import { NavigationScreenProp, NavigationStateRoute } from "react-navigation";
 import { FetchHackerNewsTopStories } from "../../../queries/hackerNews";
 import { PAGE_SIZE } from "../../../constants/config";
@@ -39,24 +30,21 @@ export default class HackerNewsList extends Component<Props> {
           itemTitle: item.title
         });
       }}
-    >
-      <Left>
-        <Text>{item.title}</Text>
-      </Left>
-      <Right>
-        <Icon name="arrow-forward" />
-      </Right>
-    </ListItem>
+      title={item.title}
+      key={item.id}
+      chevron
+      bottomDivider
+    />
+  );
+
+  _renderHeaderCenterComponent = () => (
+    <Text style={styles.titleHeader}>{TOP_STORIES}</Text>
   );
 
   render() {
     return (
-      <Container>
-        <Header>
-          <Body>
-            <Title>{TOP_STORIES}</Title>
-          </Body>
-        </Header>
+      <View style={styles.container}>
+        <Header centerComponent={this._renderHeaderCenterComponent} />
         {/* Query to backend and update the UI */}
         <Query
           query={FetchHackerNewsTopStories}
@@ -112,7 +100,7 @@ export default class HackerNewsList extends Component<Props> {
             );
           }}
         </Query>
-      </Container>
+      </View>
     );
   }
 }

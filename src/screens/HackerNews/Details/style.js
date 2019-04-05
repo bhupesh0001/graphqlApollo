@@ -54,6 +54,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginTop: 5,
     fontSize: 18
+  },
+  titleHeader: {
+    fontSize: 18,
+    color: "#fff"
   }
 });
 

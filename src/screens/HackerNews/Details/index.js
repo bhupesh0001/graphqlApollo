@@ -5,18 +5,11 @@ import {
   Text,
   ActivityIndicator,
   Linking,
-  ScrollView
+  ScrollView,
+  Share
 } from "react-native";
 import { Query } from "react-apollo";
-import {
-  Container,
-  Header,
-  Title,
-  Left,
-  Icon,
-  Button,
-  Right
-} from "native-base";
+import { Icon, Header } from "react-native-elements";
 import { NavigationScreenProp, NavigationStateRoute } from "react-navigation";
 import { FetchHackerNewsItem } from "../../../queries/hackerNews";
 import {
@@ -26,8 +19,10 @@ import {
   UPDATED,
   MORE_INFORMATION,
   COMMENTS,
-  POINTS
+  POINTS,
+  DEFAULT_ITEM_TITLE
 } from "../../../constants/staticText";
+import { DEFAULT_ITEM_ID } from "../../../constants/config";
 import Comments from "../../../components/Comments";
 import styles from "./style";
 
@@ -42,33 +37,44 @@ type Props = {
  * @extends {Component<Props>}
  */
 export default class HackerNewsDetails extends Component<Props> {
+  _renderHeaderLeftComponent = (
+    navigation: NavigationScreenProp<NavigationStateRoute>
+  ) => (
+    <Icon name="arrow-back" color="#fff" onPress={() => navigation.goBack()} />
+  );
+
+  _renderHeaderCenterComponent = () => (
+    <Text style={styles.titleHeader}>{TOP_STORIES}</Text>
+  );
+
+  _renderHeaderRightComponent = (title: string) => (
+    <Icon name="share" color="#fff" onPress={() => this._onShare(title)} />
+  );
+
+  _onShare = async (message: string) => {
+    await Share.share({
+      message
+    });
+  };
+
   // render function to render on screen
   render() {
     const { navigation } = this.props;
+    const itemDetails = navigation.getParam("itemTitle", DEFAULT_ITEM_TITLE);
     return (
-      <Container>
-        <Header>
-          <Left>
-            <Button
-              transparent
-              onPress={() => {
-                // Back to List Screen
-                navigation.goBack();
-              }}
-            >
-              <Icon name="arrow-back" />
-              <Title>{TOP_STORIES}</Title>
-            </Button>
-          </Left>
-          <Right />
-        </Header>
+      <View>
+        <Header
+          leftComponent={this._renderHeaderLeftComponent(navigation)}
+          centerComponent={this._renderHeaderCenterComponent}
+          rightComponent={this._renderHeaderRightComponent(itemDetails)}
+        />
         <ScrollView>
-          <Text style={styles.title}>
-            {navigation.getParam("itemTitle", "Details")}
-          </Text>
+          <Text style={styles.title}>{itemDetails}</Text>
           <Query
             query={FetchHackerNewsItem}
-            variables={{ itemId: navigation.getParam("itemId", "34") }}
+            variables={{
+              itemId: navigation.getParam("itemId", DEFAULT_ITEM_ID)
+            }}
           >
             {({ loading, error, data }) => {
               if (loading) {
@@ -106,7 +112,7 @@ export default class HackerNewsDetails extends Component<Props> {
             }}
           </Query>
         </ScrollView>
-      </Container>
+      </View>
     );
   }
 }

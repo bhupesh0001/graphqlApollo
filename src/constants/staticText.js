@@ -10,3 +10,4 @@ export const POSTED_BY = "Posted By : ";
 export const COMMENTS = "Comments";
 export const ERROR = "Error : ";
 export const POINTS = "Points : ";
+export const DEFAULT_ITEM_TITLE = "ITEM";

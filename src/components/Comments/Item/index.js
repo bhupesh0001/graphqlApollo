@@ -2,7 +2,7 @@
 import React, { PureComponent } from "react";
 import { View, Text } from "react-native";
 import HTMLView from "react-native-htmlview";
-import { Icon } from "native-base";
+import { Icon } from "react-native-elements";
 import styles from "./style";
 
 type Props = {
@@ -27,7 +27,7 @@ export default class CommentItem extends PureComponent<Props> {
     return (
       <View style={styles.container}>
         <View style={styles.userThumbnailContainer}>
-          <Icon name="contact" />
+          <Icon name="ios-contact" type="ionicon" />
           <Text style={styles.username}>{item.by.id}</Text>
         </View>
         <View style={styles.textContainer}>
